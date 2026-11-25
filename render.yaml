@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: neonclipping
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /readiness
+    envVars:
+      - key: NEONCLIPPING_CPU
+        value: "1"
+      - key: NEONCLIPPING_DATA_DIR
+        value: /var/data/neonclipping
+      - key: NEONCLIPPING_NO_AUTOUPDATE
+        value: "1"
